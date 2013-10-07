@@ -1,0 +1,1 @@
+Garbage project for mimicking neural networks through various learning processes.
