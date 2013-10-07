@@ -19,7 +19,7 @@ def random_net(*args, **kwargs):
     from brain.network import spawn_random
 
     net = spawn_random()
-    print net
+    print net.visual()
 
 
 

@@ -4,20 +4,20 @@ from brain import neuron
 class Network(list):
 
     def __init__(self, neurons):
-        super(Network, self).__init__(*neurons)
+        super(Network, self).__init__(neurons)
 
-    def __unicode__(self):
-         return u''.join((unicode(neuron) for neuron in self))
+    def visual(self):
+         return u''.join(neuron.visual() for neuron in self)
 
-def spawn_random(length=128, connections=5):
+def spawn_random(length=1024, connections=32):
     import random
 
     rand = random.Random()
 
-    network = Network(
-        (neuron.Neuron(state=rand.getrandbits(1)) for 
-        dummy_x in xrange(length))
-    )
+    network = Network((
+        neuron.Neuron(state=rand.getrandbits(1)) for 
+        dummy_x in xrange(length)
+    ))
 
     for dummy_x in xrange(connections * length):
         parent = rand.choice(network)

@@ -1,24 +1,29 @@
-
+"""
+    Neurons represent connections and states.
+    A rudimentary encoding algorithm has been created for visualization purposes.
+"""
 
 
 class Neuron(object):
 
-    def __init__(self):
-        self.state = 0
+    def __init__(self, state=0):
+        self.state = state
         self.connections = []
         self.parents = []
 
     @staticmethod
-    def crush(neurons, size=8):
+    def crush(neurons):
         datum = 0
+        index = 0
         for index, neuron in enumerate(neurons):
-            datum ^= neuron.state << (index % size)
+            datum ^= neuron.state << index
+            index += 1
         return datum
 
     def get_code(self):
-        upper = Neuron.crush(self.parents, size=16)
-        lower = Neuron.crush(self.connections, size=16)
-        code = (upper << 16) + lower
+        upper = Neuron.crush(self.parents)
+        lower = Neuron.crush(self.connections)
+        code = (upper << lower.bit_length()) + lower
         return code
 
     def connect(self, neuron, check_existing=True):
@@ -27,8 +32,12 @@ class Neuron(object):
             connect = neuron not in self.connections
         if connect:
             self.connections.append(neuron)
-            neuron.parents.add(self)
+            neuron.parents.append(self)
 
-    def __unicode__(self):
-        print unichr(self.get_code())
+    def visual(self):
+        code = self.get_code()
+        # A-Z,ord('A') => 65, ord('Z') => 90
+        code %= 25 # Z - A
+        code += 65 # + A
+        return chr(code)
 
