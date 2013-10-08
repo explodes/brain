@@ -5,7 +5,7 @@ from brain.neuron import Neuron
 
 class Network(list):
 
-    def __init__(self, neurons):
+    def __init__(self, neurons=()):
         super(Network, self).__init__(neurons)
 
     def visual(self):
