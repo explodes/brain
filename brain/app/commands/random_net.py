@@ -17,4 +17,6 @@ class Command(BaseCommand):
         length = args.length
         connections = args.connections
 
-        spawn_random(length=length, connections=connections)
+        network = spawn_random(length=length, connections=connections)
+
+        print network.visual()
