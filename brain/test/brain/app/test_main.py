@@ -55,6 +55,3 @@ class MainTestCase(TestCase):
 
         result = main(['./bin/main', 'about'])
         self.assertEqual(result, ':)')
-
-
-

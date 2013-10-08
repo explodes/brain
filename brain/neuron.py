@@ -1,6 +1,6 @@
 """
-    Neurons represent connections and states.
-    A rudimentary encoding algorithm has been created for visualization purposes.
+Neurons represent connections and states.
+A rudimentary encoding algorithm has been created for visualization purposes.
 """
 
 
@@ -35,7 +35,6 @@ class Neuron(object):
     def visual(self):
         code = self.get_code()
         # A-Z,ord('A') => 65, ord('Z') => 90
-        code %= 25 # Z - A
-        code += 65 # + A
+        code %= 25  # Z - A
+        code += 65  # + A
         return chr(code)
-

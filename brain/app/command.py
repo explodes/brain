@@ -1,6 +1,7 @@
 class InvalidCommandException(Exception):
     pass
 
+
 class BaseCommand(object):
 
     def run_command(self, *command_line_args):

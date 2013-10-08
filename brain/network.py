@@ -11,6 +11,7 @@ class Network(list):
     def visual(self):
         return u''.join(neuron.visual() for neuron in self)
 
+
 def spawn_random(length=1024, connections=32, rng=None):
 
     if rng is None:

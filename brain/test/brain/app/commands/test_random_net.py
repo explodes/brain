@@ -15,4 +15,5 @@ class RandomNetTestCase(TestCase):
         command = Command()
         command.run(args)
 
-        spawn_random.assert_called_with(length=args.length, connections=args.connections)
+        spawn_random.assert_called_with(length=args.length,
+                                        connections=args.connections)

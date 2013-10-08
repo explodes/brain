@@ -31,7 +31,6 @@ class NeuronTestCase(TestCase):
         self.assertSequenceEqual(child.parents, [parent])
         self.assertSequenceEqual(child.connections, [])
 
-
     def test_visual(self):
         from brain.neuron import Neuron
 
