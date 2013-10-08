@@ -39,7 +39,6 @@ def import_command_klass(command_name):
     try:
         py_mod = imp.load_source(mod_name, filepath)
     except IOError as e:
-        print e
         return None
 
     if hasattr(py_mod, expected_class):

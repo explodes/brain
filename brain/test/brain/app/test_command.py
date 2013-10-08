@@ -13,6 +13,7 @@ class MyCommand(BaseCommand):
 
     run = mock.Mock()  # Just to note that this method is mocked.
 
+
 class CommandTestCase(TestCase):
 
     @mock.patch('brain.test.brain.app.test_command.MyCommand.run')
