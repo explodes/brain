@@ -69,7 +69,7 @@ class MainTestCase(TestCase):
     def test_run_command_line_no_args(self, print_commands):
         from brain.app.main import run_command_line
 
-        result = run_command_line()
+        run_command_line()
         print_commands.assert_called_with()
 
     def test_main(self):
