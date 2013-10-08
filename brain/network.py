@@ -1,4 +1,6 @@
-from brain import neuron
+import random
+
+from brain.neuron import Neuron
 
 
 class Network(list):
@@ -7,21 +9,21 @@ class Network(list):
         super(Network, self).__init__(neurons)
 
     def visual(self):
-         return u''.join(neuron.visual() for neuron in self)
+        return u''.join(neuron.visual() for neuron in self)
 
-def spawn_random(length=1024, connections=32):
-    import random
+def spawn_random(length=1024, connections=32, rng=None):
 
-    rand = random.Random()
+    if rng is None:
+        rng = random.Random()
 
     network = Network((
-        neuron.Neuron(state=rand.getrandbits(1)) for 
+        Neuron(state=rng.getrandbits(1)) for
         dummy_x in xrange(length)
     ))
 
     for dummy_x in xrange(connections * length):
-        parent = rand.choice(network)
-        child = rand.choice(network)
+        parent = rng.choice(network)
+        child = rng.choice(network)
         if parent != child:
             parent.connect(child)
 

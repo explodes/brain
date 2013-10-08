@@ -44,22 +44,22 @@ def import_command_klass(command_name):
         klass = getattr(py_mod, expected_class)
         return klass
 
-def run_command(command_name, *args):
+def run_command(command_name, *command_line_args):
     klass = import_command_klass(command_name)
 
     if klass is not None:
         instance = klass()
-        instance.run_command(*args)
+        return instance.run_command(*command_line_args)
     else:
         raise InvalidCommandException('%s is not a valid command.' % command_name)
 
-def run_command_line(argv):
+def run_command_line(*command_line_args):
     try:
-        command_name = argv[1]
-        run_command(command_name, argv[2:])
+        command_name = command_line_args[0]
+        return run_command(command_name, *command_line_args[1:])
     except IndexError:
-        print_commands()
+        return print_commands()
 
 def main(argv):
-    run_command_line(argv)
+    return run_command_line(*argv[1:])
 

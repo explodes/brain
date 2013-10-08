@@ -1,6 +1,5 @@
 import argparse
 
-
 from brain.app.command import BaseCommand
 from brain.network import spawn_random
 
