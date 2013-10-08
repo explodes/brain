@@ -26,7 +26,6 @@ def print_commands():
     for command in gather_command_names():
         print '    %s' % command
 
-
 def import_command_klass(command_name):
     filepath = command_by_name(command_name)
 
