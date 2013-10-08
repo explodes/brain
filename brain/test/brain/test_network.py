@@ -33,7 +33,6 @@ class NetworkTestCase(TestCase):
 
         self.assertEqual(net.visual(), 'AAA')
 
-
     def test_spawn_random(self):
         from brain.network import Network
         from brain.network import spawn_random
