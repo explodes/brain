@@ -11,9 +11,7 @@ class MyCommand(BaseCommand):
     args.add_argument('-a', dest='a', type=str)
     args.add_argument('-b', dest='b', type=str)
 
-    def run(self, args):
-        raise Exception('not mocked')
-
+    run = mock.Mock()  # Just to note that this method is mocked.
 
 class CommandTestCase(TestCase):
 
