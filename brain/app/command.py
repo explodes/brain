@@ -4,5 +4,5 @@ class InvalidCommandException(Exception):
 class BaseCommand(object):
 
 	def run_command(self, *args):
-		args = self.args.parse_args(args)
-		self.run(args)
+		command_args = self.args.parse_args(args)
+		self.run(command_args)
