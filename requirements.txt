@@ -1,4 +1,8 @@
+mock==1.0.1
 py==1.4.17
+pyflakes==0.7.3
+pytest==2.4.2
 tox==1.6.1
+unittest2==0.5.1
 virtualenv==1.10.1
 wsgiref==0.1.2
