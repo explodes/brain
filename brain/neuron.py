@@ -14,10 +14,8 @@ class Neuron(object):
     @staticmethod
     def crush(neurons):
         datum = 0
-        index = 0
         for index, neuron in enumerate(neurons):
             datum ^= neuron.state << index
-            index += 1
         return datum
 
     def get_code(self):
