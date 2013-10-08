@@ -13,13 +13,19 @@ from setuptools import setup, find_packages
 
 rel = lambda * x: os.path.abspath(os.path.join(os.path.dirname(__file__), *x))
 
-with open(rel('./README.md')) as readme:
-    long_description = readme.read()
+short_description = "Garbage project for mimicking neural networks through various learning processes."
+
+try:
+    with open(rel('./README.md')) as readme:
+        long_description = readme.read()
+except IOError:
+    long_description = short_description
+
 
 setup(
     name='brain',
     version='0.0.0',
-    description="Garbage project for mimicking neural networks through various learning processes.",
+    description=short_description,
     long_description=long_description,
     author='Evan Leis',
     author_email='evan.explodes@gmail.com',
